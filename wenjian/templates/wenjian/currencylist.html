@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardcurrency.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>CURRENCY LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'currency' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+{% if currency_list %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>CURRENCY</th>
+            <th>EXCHANGE RATE</th>
+            <th>UPDATE DATE</th>
+            <th>START DATE</th>
+            <th>END DATE</th>
+        </tr>
+    {% for p in currency_list %}
+        <tr>
+            <td><a href="{% url 'currency_update' p.id %}">{{p.currency}}</a></td>
+            <td>{{ p.exchangerate }}</td>
+            <td>{{ p.updatedate|date:'Y-m-d' }}</td>
+            <td>{{ p.startdate|date:'Y-m-d' }}</td>
+            <td>{{ p.enddate|date:'Y-m-d' }}</td>            
+        </tr>
+    {% endfor %}
+    </table>  
+</div>
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "simon/base.html" %}
+
+{% block content %}
+    <br />
+    <h1>PAYEE CONTROL</h1>
+    {% if payee_id > 0 %}
+        <h4>PAYEE MODIFY</h4>
+
+    {% else %}
+        <h4>NEW PAYEE</h4>
+
+    {% endif %}
+    <form method="post" action="{% url 'savepayee' payee_id %}">
+        {% csrf_token %}
+        <br />
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br />
+        <input type="submit" value="Submit" class="btn btn-outline-primary"/>
+    </form>
+{% endblock %}

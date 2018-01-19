@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/carduser.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>USER LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'newuser' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+{% if user_list %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>USER NAME       </th>
+            <th>FIRST NAME      </th>
+            <th>LAST NAME       </th>
+            <th>BRANCH          </th>
+            <th>E-MAIL          </th>
+            <th>VALIDATE TO     </th>
+            <th>PASSWORD</th>
+        </tr>
+    {% for p in user_list %}
+        <tr>
+            <td><a href="{% url 'updateuser' p.id %}">{{p.username}}</a></td>
+            <td>{{ p.first_name }}      </td>
+            <td>{{ p.last_name }}       </td>
+            <td>{{ p.branch_office }}   </td>
+            <td>{{ p.email }}           </td>
+            <td>{{ p.validate_date }}   </td>
+            <td><a href="{% url 'password' p.id %}">CHANGE</a>      </td>
+        </tr>
+    {% endfor %}
+    </table>  
+</div>
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

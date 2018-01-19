@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardcontainersize.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>CONTAINER SIZE LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'containersize' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+<br />
+{% if containersize_list %}
+    {% for p in containersize_list %}
+        {% if forloop.counter0|divisibleby:'5' %}
+            <div class="row">
+        {% endif %}
+            <div class="col-sm">
+                <a href="{% url 'containersizeupdate' p.id %}">{{p.containersize}}</a>
+            </div>
+        {% if forloop.counter|divisibleby:'5' %}
+            </div>
+        {% endif %}        
+    {% endfor %} 
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

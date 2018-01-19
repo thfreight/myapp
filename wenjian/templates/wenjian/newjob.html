@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/jobbase.html' %}
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col"> 
+            <small><label class="col-form-label col-sm-10">{{ form.booking_no.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.booking_no }}</div> 
+        </div>
+        <div class="form-group col">
+
+        </div>
+
+    </div>    
+    <div class="form-row">
+        <div class="form-group col"> 
+            <small><label class="col-form-label col-sm-10">{{ form.client.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.client }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.book_agent.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.book_agent }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.carrier.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.carrier }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.destination_agent.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.destination_agent }}</div> 
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.place_of_receipt.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.place_of_receipt }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.pol.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.pol }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.pod.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.pod }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.place_of_delivery.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.place_of_delivery }}</div> 
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.pre_carriage.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.pre_carriage }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-2">{{form.vessel.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.vessel }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-2">{{form.voyage.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.voyage }}</div> 
+        </div>
+        <div class="form-group col">
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.doc.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.doc }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.etd.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.etd }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.eta.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.eta }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{form.operator.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.operator }}</div> 
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.create_date.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.create_date }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.finish_date.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.finish_date }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.status.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.status }}</div> 
+        </div>
+        <div class="form-group col">
+            <small><label class="col-form-label col-sm-10">{{ form.assistant.label_tag }}</label></small>
+            <div class='col-sm-10'>{{ form.assistant }}</div>         
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-outline-primary btn-sm">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "simon/base.html" %}
+
+{% block content %}
+<br />
+<h1>PAYEE CONTROL</h1>
+<h4>PAYEE LIST</h4>
+
+{% if payee_list %}
+    <table id="customers" class="table table-hover table-sm">
+        <tr>
+            <th width="100" scope = "col"> NO</th>
+            <th scope="col">PAYEE</th>
+        </tr>
+
+    {% for payee in payee_list %}
+        <tr>
+            <td scope="row">{{ forloop.counter }}</td>
+            <td><a href="{% url 'payeedetail' payee.id %}">{{ payee.payee }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No data are available.</p>
+{% endif %}
+<br />
+If you want to modify the PAYEE, just click on it!
+<br />
+If you have a new PAYEE, please click 
+<a href="{% url 'payeedetail' 0 %}" role="button" class="btn btn-outline-success btn-sm">HERE</a>
+!
+
+{% endblock %}

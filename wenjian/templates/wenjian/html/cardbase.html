@@ -1,0 +1,23 @@
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            {% if form.client_shortcut.value %}
+                <a class="nav-link" href="#">CLIENT: {{ form.client_shortcut.value }}</a>
+            {% else %}
+                <a class="nav-link" href="#">CLIENT: NEW</a>
+            {% endif %}
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'clientupdate' p %}">BASIC INFO</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contactlist' p %}">CONTACT PERSON</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'clientrole' p %}">ROLES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">OTHERS</a>
+        </li>
+    </ul>
+</div>

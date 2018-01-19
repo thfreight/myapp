@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>{% block title %}TH FREIGHT{% endblock %}</title>
+	{% include 'wenjian/html/css.html' %}
+</head>
+
+<body>
+	{% block navbar %}
+		{% include 'wenjian/html/navbar.html' %}
+	{% endblock %}
+	<div class="card text-left">
+
+		{% block cardhead %} {% endblock %}
+
+		<div id="content" class="container">
+				{% block content %} {% endblock %}
+		</div>
+	</div>
+
+	<div id="bottom" class="bottom">
+		
+	</div>
+	{% include 'wenjian/html/js.html' %}
+</body>
+</html>

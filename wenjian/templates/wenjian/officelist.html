@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardoffice.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>OFFICE LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'newoffice' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+{% if office_list %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>OFFICE SHORTCUT</th>
+            <th>OFFICE NAME</th>
+            <th>OFFICE CODE</th>
+            <th>OFFICE AC CODE</th>
+            <th>OFFICE TELEPHONE</th>
+        </tr>
+    {% for p in office_list %}
+        <tr>
+            <td><a href="{% url 'updateoffice' p.id %}">{{p.office_shortcut}}</a></td>
+            <td>{{ p.office_name }}</td>
+            <td>{{ p.office_code }}</td>
+            <td>{{ p.office_ac_code }}</td>
+            <td>{{ p.office_tel }}</td>            
+        </tr>
+    {% endfor %}
+    </table>  
+</div>
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

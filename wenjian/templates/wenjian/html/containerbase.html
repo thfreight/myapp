@@ -1,0 +1,30 @@
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            {% if job_no %}
+                <a class="nav-link" href="#">JOB NO: {{ job_no }}</a>
+            {% else %}
+                <a class="nav-link" href="#">JOB NO: NEW</a>
+            {% endif %}
+        </li>
+        <li class="nav-item">
+            {% if pk %}
+                <a class="nav-link" href="{% url 'updatejob' pk %}">BASIC INFO</a>
+            {% else %}
+                <a class="nav-link" href="{% url 'newjob' %}">BASIC INFO</a>
+            {% endif %}
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'containerlist' pk %}">CONTAINER</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">FILES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">EXPENSES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">OTHERS</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br />
+    <div class="row">
+        <div class="col-sm">
+            <h4>CLIENT LIST</h4>
+        </div>
+
+        <div class="col-sm">
+            <form method="POST" action="" class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field }}
+                {% endfor %}
+                <button type="submit" class="btn btn-outline-primary btn-sm" name="search_client">SEARCH</button>
+            </form>
+        </div>
+        <div class="col-sm" style="text-align: right;">
+            <a href="{% url 'client' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>     
+        </div>
+    </div>
+
+    <form method="POST" action = ''>{% csrf_token %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>SELECT</th>
+            <th>SHORT NAME</th>
+            <th>FULL NAME</th>
+            <th>TELEPHONE</th>
+            <th>E-MAIL</th>
+        </tr>
+    {% for i in queryset %}
+        <tr>
+            <td><input type="checkbox" name='client_select' value='{{ i.id }}'></td>
+            <td><a href="{% url 'clientupdate' i.id %}">{{ i.client_shortcut }}</a></td>
+            <td>{{ i.client_name }}</td>
+            <td>{{ i.client_tel}}</td>
+            <td>{{ i.client_email }}</td>
+        </tr>
+    {% endfor %}  
+    </table>
+    {% include 'wenjian/html/pagination.html' %}
+    </form>
+{% endblock %}

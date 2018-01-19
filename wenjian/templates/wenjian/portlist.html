@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardport.html' %}
+{% endblock %}
+
+{% block content %}
+    <br />
+    <div>
+        <div style="float: left;">
+            <h4>PORT LIST</h4>
+        </div>
+        <div style="text-align: right;">
+            <a href="{% url 'port' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+        </div>
+    </div>
+    <br />
+    {% if port_list %}
+        {% for p in port_list %}
+            {% if forloop.counter0|divisibleby:'5' %}
+                <div class="row">
+            {% endif %}
+                <div class="col-sm">
+                    <a href="{% url 'portupdate' p.id %}">{{p.port}}</a>
+                </div>
+            {% if forloop.counter|divisibleby:'5' %}
+                </div>
+            {% endif %}        
+        {% endfor %} 
+    {% else %}
+        <p>There is no DATA as well.</p>
+    {% endif %}
+{% endblock %}

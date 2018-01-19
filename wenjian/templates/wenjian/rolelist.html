@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardrole.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>ROLE LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'role' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+<br />
+{% if role_list %}
+    <table class="table, table-hover, table-sm">
+
+    {% for p in role_list %}
+        {% if forloop.counter0|divisibleby:'5' %}
+            <tr>
+        {% endif %}
+            <td width="200px">
+                <a href="{% url 'roleupdate' p.id %}">{{p.role}}</a>
+            </td>
+        {% if forloop.counter|divisibleby:'5' %}
+            </tr>
+        {% endif %}        
+    {% endfor %}
+    </tr>          
+    </table> 
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

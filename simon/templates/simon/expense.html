@@ -1,0 +1,32 @@
+{% extends "simon/base.html" %}
+
+{% block content %}
+<br />
+<h1>EXPENSES CONTROL</h1>
+<h4>EXPENSES LIST</h4>
+
+{% if expense_list %}
+    <table id="customers" class="table table-sm table-hover">
+        <tr>
+            <th width="100">NO</th>
+            <th>EXPENSE</th>
+        </tr>
+
+        {% for paytype in expense_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'expensedetail' paytype.id %}" >{{ paytype.pay_type }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No data are available.</p>
+{% endif %}
+<br />
+If you want to modify the EXPENSE, just click on it!
+<br />
+If you have a new EXPENSE, please click 
+<a href="{% url 'expensedetail' 0 %}" role="button" class="btn btn-outline-success btn-sm">HERE</a>
+!
+
+{% endblock %}

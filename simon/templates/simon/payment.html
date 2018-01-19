@@ -1,0 +1,16 @@
+{% extends 'simon/base.html' %}
+
+{% block content %}
+    <br />
+    <h1>EXPENSES CONTROL</h1>
+    <H4>PAYMENT INPUT</H4>
+    <br />
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br />
+        <p><button type="submit" class="btn btn-outline-primary">SUBMIT</button></p>
+    </form>
+{% endblock %}

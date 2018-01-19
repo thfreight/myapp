@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    {% include 'wenjian/html/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+</br>
+<div>
+    <div style="float: left;">
+        <h8>JOB LIST</h8>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'newjob' %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<table class="table table-hover table-sm">
+    <tr>
+        <th>JOB NO          </th>
+        <th>CLIENT          </th>
+        <th>POL             </th>
+        <th>POD             </th>
+        <th>CARRIER         </th>        
+        <th>VESSEL          </th>
+        <th>CLOSING DATE    </th>
+        <th>ETD             </th>
+        <th>ETA             </th>        
+        <th>STATUS          </th>        
+    </tr>
+
+{% for i in job_list %}
+    <tr>
+        <td><a href="{% url 'updatejob' i.id %}">{{ i.job_no }}</a></td>
+        <td>{{ i.client }}              </td>
+        <td>{{ i.pol }}                 </td>
+        <td>{{ i.pod }}                 </td>        
+        <td>{{ i.carrier }}             </td>      
+        <td>{{ i.vessel }}              </td>
+        <td>{{ i.doc|date:'Y-m-d' }}    </td>
+        <td>{{ i.etd|date:'Y-m-d' }}    </td>
+        <td>{{ i.eta|date:'Y-m-d' }}    </td>
+        <td>{{ i.status }}              </td>        
+    </tr>
+{% empty %}
+    <p>There is no any job now. </p>
+{% endfor %}    
+</table>
+{% endblock %}

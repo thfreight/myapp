@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/containerbase.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>CONTAINER LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'newcontainer' pk %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+{% if table_list %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>CNTR NO</th>
+            <th>SEAL NO</th>
+            <th>SIZE</th>
+            <th>NOS.</th>
+            <th>PACKAGE</th>
+            <th>WEIGHT</th>
+            <th>VOLUME</th>
+        </tr>
+    {% for p in table_list %}
+        <tr>
+            <td><a href="{% url 'updatecontainer' p.id %}">{{p.containerno}}</a></td>
+            <td>{{ p.sealno }}</td>
+            <td>{{ p.containersize }}</td>
+            <td>{{ p.amount_of_package }}</td>
+            <td>{{ p.packages }}</td>
+            <td>{{ p.weight }}</td>
+            <td>{{ p.volume }}</td>            
+        </tr>
+    {% endfor %}
+    </table>  
+</div>
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

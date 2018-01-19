@@ -1,0 +1,34 @@
+{% extends "simon/base.html" %}
+
+{% block content %}
+<br />
+
+{% if last_payment %}
+    <br />
+    <h5>THE LASTEST PAYMENT</h4>
+    <table id="customers" class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>PAYEE                   </th>
+            <th>AMOUNT                  </th>
+            <th>PAY DATE                </th>
+            <th>START DATE              </th>
+            <TH>END DATE                </TH>
+            <th>PAY FOR                 </th>
+        </tr>
+    {% for pay in last_payment %}
+        <tr class="{% cycle 'row1' 'row2' 'table-secondary' %}">
+            <td>{{ pay.payee }}         </td>
+            <td>{{ pay.pay_amount }}    </td>
+            <td>{{ pay.pay_date }}      </td>
+            <td>{{ pay.start_date }}    </td>
+            <td>{{ pay.end_date }}      </td>
+            <td>{{ pay.payment_type }}  </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    "<p>NO DATA!</p>"
+{% endif %}
+
+
+{% endblock %}

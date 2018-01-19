@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block cardhead %}
+    {% include 'wenjian/html/cardcontact.html' %}
+{% endblock %}
+
+{% block content %}
+<br />
+<div>
+    <div style="float: left;">
+        <h4>CONTACT PERSON LIST</h4>
+    </div>
+    <div style="text-align: right;">
+        <a href="{% url 'contactadd' pk %}" class="btn btn-outline-primary btn-sm" role="button">NEW</a>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+{% if contact_list %}
+    <table class="table table-sm table-hover">
+        <tr class="table-active">
+            <th>PERSON NAME</th>
+            <th>MOBILE PHONE</th>
+            <th>E-MAIL</th>
+        </tr>
+    {% for p in contact_list %}
+        <tr>
+            <td><a href="{% url 'contactupdate' p.id %}">{{p.pic_name}}</a></td>
+            <td>{{ p.pic_mobile }}</td>
+            <td>{{ p.pic_email }}</td>          
+        </tr>
+    {% endfor %}
+    </table>  
+</div>
+{% else %}
+    <p>There is no DATA as well.</p>
+{% endif %}
+{% endblock %}

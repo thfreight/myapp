@@ -1,0 +1,78 @@
+body {
+    font: 14px arial;
+}
+
+h1 {
+    color: red;
+}
+
+li a {
+    color: blue;
+    font: 16px;
+}
+
+h2 {
+    color: rgb(255, 123, 0);
+}
+
+.sidemenu {
+    width: 150px;
+    float: left;
+}
+
+.content {
+    width: 500px;
+    float: left;
+}
+
+#customers {
+    font-family: Arial, "Trebuchet MS", Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type=text], input[type=email], textarea, select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+label {
+    font: 16px;
+}

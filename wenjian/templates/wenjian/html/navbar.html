@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'home' %}">TH FREIGHT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbartext">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'joblist' %}">JOB </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'clientlist' 1 %}">CLIENT</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'portlist' %}">BASIC DATA</a>
+            </li>
+            <li class="nav-item dropdown disable">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SETUP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'officelist' %}">MANAGEMENT</a>
+                    <a class="dropdown-item" href="{% url 'portlist' %}">PORT</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <div class='row'>
+            <div style="margin-right: 15px;">
+                {% if user.is_authenticated %}
+                    <span class="navbar-text" style="color: white;">Welcome, 
+                        <strong><a href="{% url 'logout' %}">{{ user.get_username }}</a></strong>
+                    </span>
+                {% else %}
+                    <a class="btn btn-outline-warning btn-sm col" href={% url 'login' %}>Login</a>
+                {% endif %}    
+            </div>
+            <div></div>     
+        </div>
+    </div>
+</nav>

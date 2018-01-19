@@ -1,0 +1,20 @@
+{% extends "simon/base.html" %}
+
+{% block content %}
+    <br />
+    <h1>EXPENSE CONTROL</h1>
+    {% if expense_id > 0 %}
+        <h4>EXPENSE MODIFY</h4>
+    {% else %}
+        <h4>NEW EXPENSE</h4>
+    {% endif %}
+    <br />    
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br />
+        <input type="submit" value="Submit" class="btn btn-outline-primary" />
+    </form>
+{% endblock %}

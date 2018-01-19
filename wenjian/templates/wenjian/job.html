@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>JOB</h1>
+
+<form method="POST">
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+    <input type='submit' value='Submit' class='btn btn-sm btn-outline-success' />
+</form>
+
+{% endblock %}
